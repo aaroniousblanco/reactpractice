@@ -1,0 +1,86 @@
+<!--
+Make this gallery application work. The previous and next buttons should cycle through the 6 photos in the gallery.
+
+## Step 2
+
+After making the previous and next buttons work, also list all the images in the gallery as thumbnails (just use height/height to make them smaller), and make them clickable so that when clicked, the clicked photo becomes the main photo.
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Babel Quickstart</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <div id="thumb"></div>
+    <script type="text/babel" data-presets="react">
+    const images = [
+      'images/comfy.jpg',
+      'images/farted.jpg',
+      'images/hate.jpg',
+      'images/lolcat_airplane.jpg',
+      'images/mocked.jpg',
+      'images/monorail.jpg',
+    ];
+
+    class Gallery extends React.Component {
+      constructor () {
+        super();
+        this.state = {
+          imageIdx: 0
+          // thumbnails: []
+        }
+      }
+      next() {
+        this.setState({
+          imageIdx: this.state.imageIdx + 1
+        })
+      }
+      previous() {
+        this.setState({
+          imageIdx: this.state.imageIdx - 1
+        })
+      }
+      // this.state.thumbnails.map((images, idx) =>
+      //   <img.src={images}/>
+      // )
+
+      render() {
+        if (this.state.imageIdx < 0) {
+          this.state.imageIdx = 5;
+        }
+        else if (this.state.imageIdx > 5) {
+          this.state.imageIdx = 0;
+        }
+        return (
+          <div>
+            <button onClick={() => this.previous()}>
+              Previous
+            </button>
+            <button onClick={() => this.next()}>
+              Next
+            </button>
+            <br/>
+            <img src={this.props.poop[this.state.imageIdx]}/>
+          </div>
+        );
+      }
+    }
+
+    ReactDOM.render(
+      <Gallery poop={images}/>,
+      document.getElementById('root')
+    );
+
+    // ReactDOM.render(
+    //   <Gallery poop={images}/>,
+    //   document.getElementById('thumb')
+    // );
+
+    </script>
+  </body>
+</html>
