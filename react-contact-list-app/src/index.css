@@ -1,0 +1,79 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+
+}
+
+h2 {
+  margin-left: 5%;
+  display: inline-block;
+}
+.saved-contacts {
+  margin: 0 5% 0 50px;
+  border-bottom: 2px solid black;
+  padding-top: 10px;
+  overflow: auto;
+}
+
+.saved-contacts ul {
+  float: left;
+}
+.saved-contacts li {
+  text-align: left;
+  list-style: none;
+}
+
+.delete {
+  float: right;
+  margin: 10px 10px 10px 50px;
+  background-color: red;
+  border-radius: 0;
+  border: none;
+}
+
+.delete:hover {
+  background-color: darkred;
+}
+
+.add {
+  margin: 10px 10px 10px 0;
+  background-color: green;
+  border-radius: 0;
+  width: 200px;
+}
+
+.add:hover {
+  background-color: darkgreen;
+}
+
+.add-contact {
+  margin: 50px 100px 10px 5%;
+  padding: 50px;
+  background-color: tan;
+  border-radius: 10px;
+}
+
+.favorites {
+  float: right;
+  margin: 10px 10px 10px 50px;
+  background-color: gold;
+  border-radius: 0;
+  border: none;
+}
+
+.main {
+  margin-bottom: 10%;
+}
+
+.toggle {
+  display: inline-block;
+  margin: 10px 10px 10px 50px;
+  background-color: gold;
+  border-radius: 0;
+  border: none;
+}
+
+.toggle:hover, .favorites:hover {
+  background-color: brown;
+}

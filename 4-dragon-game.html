@@ -28,21 +28,46 @@ Hints at the bottom of this file.
     <script type="text/babel" data-presets="react">
 
     class DragonGame extends React.Component {
+      constructor () {
+        super();
+        this.state = {
+          dragonHealth: 20,
+          heroHealth: 10
+        }
+      }
+      fight () {
+        let random =  Math.random();
+        if (random > .5) {
+          this.setState ({
+            dragonHealth: this.state.dragonHealth - 5
+          })
+        }
+        else {
+          this.setState ({
+            heroHealth: this.state.heroHealth - 5
+          })
+        }
+      }
+      flight () {
+          this.setState ({
+           heroHealth: this.state.heroHealth + 2
+        })
+      }
       render() {
         let message = '';
         return (
           <div>
             <img src="http://img10.deviantart.net/e984/i/2015/287/c/5/red_dragon_by_sandara-d6hpycs.jpg" width="400"/>
             <br/>
-            <label>Dragon: 20</label>&nbsp;
-            <label>Hero: 10</label>
+            <label>Dragon: {this.state.dragonHealth}</label>&nbsp;
+            <label>Hero: {this.state.heroHealth}</label>
             <br/>
             {message}
             <br/>
-            <button>
+            <button onClick={() => this.fight()}>
               Fight
             </button>
-            <button>
+            <button onClick={() => this.flight()}>
               Flight
             </button>
           </div>

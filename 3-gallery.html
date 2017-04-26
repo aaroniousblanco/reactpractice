@@ -32,7 +32,6 @@ After making the previous and next buttons work, also list all the images in the
         super();
         this.state = {
           imageIdx: 0
-          // thumbnails: []
         }
       }
       next() {
@@ -45,9 +44,12 @@ After making the previous and next buttons work, also list all the images in the
           imageIdx: this.state.imageIdx - 1
         })
       }
-      // this.state.thumbnails.map((images, idx) =>
-      //   <img.src={images}/>
-      // )
+      changeImage(index) {
+        console.log(index);
+        this.setState({
+          imageIdx: index
+        })
+      }
 
       render() {
         if (this.state.imageIdx < 0) {
@@ -65,21 +67,22 @@ After making the previous and next buttons work, also list all the images in the
               Next
             </button>
             <br/>
-            <img src={this.props.poop[this.state.imageIdx]}/>
+            <img src={this.props.property[this.state.imageIdx]}/>
+            <div>
+             {this.props.property.map((image, index) =>
+              <img onClick={() => this.changeImage(index)} key={index} src={image} height="68"/>
+            )}
+            </div>
           </div>
         );
       }
     }
 
     ReactDOM.render(
-      <Gallery poop={images}/>,
+      <Gallery property={images}/>,
       document.getElementById('root')
     );
 
-    // ReactDOM.render(
-    //   <Gallery poop={images}/>,
-    //   document.getElementById('thumb')
-    // );
 
     </script>
   </body>
